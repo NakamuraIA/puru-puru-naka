@@ -10,7 +10,7 @@
 <meta property="og:site_name" content="pururu">
 <meta property="og:title" data-i18n-attr="content:og.title" content="pururu — さわって、ぷるん。">
 <meta property="og:description" data-i18n-attr="content:og.description" content="つまんで、なげて、つついて。大理石の洗面台の上で、透明なゼリーのスライム「ぷるる」と遊べます。">
-<meta property="og:url" content="https://pururu-slime.matodesign.workers.dev/">
+<meta property="og:url" content="https://nakamuraia.github.io/puru-puru-naka/">
 <meta property="og:image" content="https://pururu-slime.matodesign.workers.dev/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@1,144,600,100,1&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/styles-fe7a9e1ff517.css">
+<link rel="stylesheet" href="./assets/styles-7fafa85f05ed.css">
 </head>
 <body>
 <div id="app">
@@ -74,11 +74,54 @@
     <p class="flv-label" data-i18n="flavors.label">Flavor</p>
     <div class="flv-list glass" id="flavors"></div>
   </nav>
+  <button class="play-launcher" id="play-open" type="button" aria-haspopup="dialog" data-i18n="play.open" data-i18n-attr="aria-label:play.open" aria-label="あそぶ">あそぶ</button>
+  <dialog class="play-panel" id="play-panel" aria-labelledby="play-title">
+    <header class="play-heading">
+      <h2 id="play-title" data-i18n="play.title">ぷるるの小さなお部屋</h2>
+      <button class="play-close" id="play-close" type="button" data-i18n-attr="aria-label:play.close">×</button>
+    </header>
+    <div class="play-tabs" role="tablist" data-i18n-attr="aria-label:play.title">
+      <button type="button" role="tab" id="tab-room" aria-controls="panel-room" aria-selected="true" data-i18n="play.room">お部屋</button>
+      <button type="button" role="tab" id="tab-games" aria-controls="panel-games" aria-selected="false" tabindex="-1" data-i18n="play.games">あそび</button>
+      <button type="button" role="tab" id="tab-friends" aria-controls="panel-friends" aria-selected="false" tabindex="-1" data-i18n="play.friends">ともだち</button>
+    </div>
+    <section class="play-page" id="panel-room" role="tabpanel" aria-labelledby="tab-room">
+      <h3 data-i18n="play.themes">どこであそぶ？</h3>
+      <div class="theme-choices" id="theme-choices"></div>
+      <div class="personality-note"><h3 data-i18n="play.personality">フレーバーの性格</h3><p id="personality-note"></p></div>
+      <button class="play-photo" id="photo-open" type="button" data-i18n="photo.open">写真モード</button>
+    </section>
+    <section class="play-page" id="panel-games" role="tabpanel" aria-labelledby="tab-games" hidden>
+      <div id="actor-choices" hidden><h3 data-i18n="play.target">いっしょにあそぶ相手</h3><div class="play-choices">
+        <button class="play-choice" id="target-main" type="button" data-i18n="play.main">ぷるる</button>
+        <button class="play-choice" id="target-friend" type="button" data-i18n="play.friend">ともだち</button>
+      </div></div>
+      <h3 data-i18n="play.expressions">おかお</h3><div class="play-choices" id="emotion-choices"></div>
+      <h3 data-i18n="play.actions">しぐさ</h3><div class="play-choices" id="action-choices"></div>
+      <button class="play-pet" id="play-pet" type="button" data-i18n="play.pet">なでる</button>
+      <p id="play-message" class="play-message" role="status"></p>
+    </section>
+    <section class="play-page" id="panel-friends" role="tabpanel" aria-labelledby="tab-friends" hidden>
+      <label class="companion-choice"><span data-i18n="play.companion">いっしょにあそぶともだち</span><input id="play-companion" type="checkbox"></label>
+      <p class="play-help" data-i18n="play.companionHint">ふたりであそぼう。</p>
+      <h3 data-i18n="play.objects">おもちゃ</h3><div class="play-choices" id="toy-choices"></div>
+      <p class="play-help" id="toy-help" data-i18n="play.objectsHint">おもちゃをドラッグ、泡をタップ。</p>
+      <button class="play-extra" id="more-bubbles" type="button" data-i18n="play.moreBubbles" hidden>泡をふやす</button>
+    </section>
+    <footer class="play-footer" data-i18n="play.saved">このブラウザに保存されます。</footer>
+  </dialog>
+  <div class="photo-controls" id="photo-controls" hidden>
+    <label><span data-i18n="photo.pose">ポーズ</span><select id="photo-pose" aria-label="ポーズ" data-i18n-attr="aria-label:photo.pose"></select></label>
+    <button id="photo-take" type="button" data-i18n="photo.take">写真を保存</button>
+    <button id="photo-exit" type="button" data-i18n="photo.exit">あそびにもどる</button>
+    <p id="photo-status" role="status"></p>
+    <div id="photo-output" hidden><img id="photo-preview" data-i18n-attr="alt:photo.preview" alt="写真"><a id="photo-download" data-i18n="photo.download" download>写真をダウンロード</a></div>
+  </div>
   <div class="nogl" id="nogl">
     <p data-i18n="nogl.line1">この端末ではぷるるを表示できませんでした。</p>
     <p data-i18n="nogl.line2">WebGLに対応したブラウザでひらいてください。</p>
   </div>
 </div>
-<script type="module" src="./assets/app-e33f80a2e343.js"></script>
+<script type="module" src="./assets/app-5f26ce16becc.js"></script>
 </body>
 </html>
