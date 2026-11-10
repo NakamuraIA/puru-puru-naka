@@ -1,0 +1,67 @@
+/* ---------- responsive ---------- */
+@media (max-width: 1100px){
+  .flv{width:56px;height:68px;font-size:11px}
+  .swatch{width:26px;height:26px}
+}
+@media (max-width: 900px){
+  .copy{max-width:min(40vw, 340px)}
+}
+@media (max-width: 720px), (max-aspect-ratio: 9/10){
+  .top{padding-top:calc(env(safe-area-inset-top) + 14px)}
+  .wordmark{font-size:24px}
+  .brand svg{width:28px;height:28px}
+  .brand-ja{display:none}
+  .counter{height:40px;padding:0 14px;font-size:12px}
+  .counter b{font-size:19px}
+  .pill-btn{height:44px;padding:0 12px}
+  .pill-btn .label{display:none}
+  .hint{top:calc(env(safe-area-inset-top) + 66px);font-size:11px;gap:4px}
+  .hint span{height:28px;padding:0 8px 0 4px;gap:4px}
+  .hint i{height:20px;padding:0 6px;font-size:10px}
+  .copy{
+    left:var(--gutter);right:var(--gutter);max-width:none;text-align:center;
+    bottom:calc(env(safe-area-inset-bottom) + 108px);
+  }
+  .eyebrow{justify-content:center;margin-bottom:8px;font-size:13px}
+  .eyebrow::after{content:"";width:28px;height:1.5px;background:currentColor;border-radius:2px}
+  h1{font-size:clamp(28px, 8vw, 38px);margin-bottom:8px}
+  h1 br{display:none}
+  .lead{font-size:13px;line-height:1.8}
+  .flavors{left:12px;right:12px;align-items:center;bottom:calc(env(safe-area-inset-bottom) + 14px)}
+  .flv-label{display:none}
+  .flv-list{width:100%;max-width:440px;justify-content:space-between;gap:2px;padding:5px}
+  .flv{flex:1;min-width:0;width:auto;height:64px;font-size:10.5px;gap:4px}
+  .swatch{width:24px;height:24px}
+}
+@media (max-width: 520px){
+  .top{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand sound"
+      "lang count";
+    column-gap:8px;
+    row-gap:8px;
+  }
+  .top-right{display:contents}
+  .brand{grid-area:brand;min-width:0}
+  .lang{grid-area:lang;justify-self:end;min-width:0;max-width:100%}
+  .lang select{max-width:100%;text-overflow:ellipsis}
+  .counter{grid-area:count;justify-self:end}
+  .pill-btn{grid-area:sound;justify-self:end}
+  .hint{top:calc(env(safe-area-inset-top) + 116px)}
+}
+@media (max-width: 360px){
+  .counter span{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .fx-heart,.fx-z{animation-duration:.01s}
+  .flv:hover .swatch{animation:none}
+}
+/* Keep controls clear of cutouts in either orientation. */
+.top{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+@media (pointer:coarse){
+  .lang select{font-size:16px}
+  .brand{min-height:44px}
+  .pill-btn:hover{transform:none}
+}

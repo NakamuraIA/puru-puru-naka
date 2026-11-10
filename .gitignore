@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+dist/
+
+# npm / logs
+npm-debug.log*
+*.tgz
+
+#screenshots / temp dos testes locais
+*.png
+!docs/*.png
+*.log
+chk/
+_t/
+
+# amostras de audio que nao pertencem ao projecto
+*.wav
+*.mp3
+
+# ficheiros de rascunho que nao pertencem ao pacote
+ddad.html
+
+# os cruzes
+.DS_Store
+Thumbs.db
+
+# squarecloud.app e versionado: a configuracao e do projecto.
+# O ID= que o CLI acrescenta ao fazer upload e local a cada conta.
+# Se preferires zero divergencia, descomenta a linha seguinte e versiona
+# squarecloud.app.example em vez do ficheiro.
+# squarecloud.app
+
+# editors
+.vscode/
+.idea/
+*.swp

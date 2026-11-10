@@ -1,0 +1,21 @@
+/* ---------- copy ---------- */
+.copy{
+  position:absolute;z-index:5;left:var(--gutter);bottom:calc(env(safe-area-inset-bottom) + var(--gutter));
+  max-width:min(30vw, 420px);pointer-events:none;
+}
+.eyebrow{
+  font-family:"Fraunces", Georgia, serif;font-style:italic;font-weight:600;font-size:15px;letter-spacing:.01em;
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;opacity:.75;
+}
+.eyebrow::before{content:"";width:28px;height:1.5px;background:currentColor;border-radius:2px}
+h1{
+  font-weight:900;font-size:clamp(34px, 3.7vw, 60px);line-height:1.18;letter-spacing:.02em;
+  margin-bottom:18px;
+}
+h1 .puru{color:var(--accent-deep);transition:color .6s}
+:root[data-flavor="aurora"] h1 .puru{
+  background:linear-gradient(95deg,#6FB6FF 0%,#B18CFF 38%,#FF8FCB 68%,#FFC77A 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lead{font-size:clamp(14px, 1.05vw, 16px);font-weight:500;line-height:1.95;letter-spacing:.04em;opacity:.85}
+.lead .ph{display:inline-block}

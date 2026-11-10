@@ -1,0 +1,71 @@
+{
+  "name": "pururu",
+  "version": "1.0.0",
+  "description": "さわって、ぷるん。 A squishy jelly friend you can grab, throw, poke and squeeze, living on a marble bathroom counter. Built with Three.js.",
+  "keywords": [
+    "three",
+    "threejs",
+    "webgl",
+    "jelly",
+    "slime",
+    "physics",
+    "soft-body",
+    "interactive",
+    "creative-coding",
+    "animation",
+    "generative",
+    "playground"
+  ],
+  "homepage": "https://nakamuraia.github.io/puru-puru-naka/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NakamuraIA/puru-puru-naka.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NakamuraIA/puru-puru-naka/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/NakamuraIA"
+  },
+  "license": "MIT",
+  "author": "Naka (https://github.com/NakamuraIA)",
+  "type": "module",
+  "bin": {
+    "pururu": "bin/pururu.mjs"
+  },
+  "files": [
+    "index.html",
+    "404.html",
+    "styles/",
+    "src/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/pururu.mjs",
+    "dev": "node bin/pururu.mjs --open",
+    "check": "node tools/check-imports.mjs && node tools/check-i18n.mjs",
+    "build": "npm run check && node tools/build.mjs",
+    "check:dist": "node tools/check-dist.mjs",
+    "test": "npm run build && node --test tests/production.test.mjs tests/playground.test.mjs tests/mobile.test.mjs",
+    "prepreview": "npm run build",
+    "preview": "node bin/pururu.mjs --dist --open",
+    "release": "npm test && node tools/publish-dist.mjs",
+    "deploy": "npm run release",
+    "deploy:update": "node tools/deploy.mjs update",
+    "deploy:new": "node tools/deploy.mjs new",
+    "logs": "squarecloud app logs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "three": "0.170.0"
+  }
+}

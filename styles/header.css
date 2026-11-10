@@ -1,0 +1,55 @@
+/* ---------- header ---------- */
+.top{
+  position:absolute;left:0;right:0;top:0;z-index:5;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:calc(env(safe-area-inset-top) + 20px) var(--gutter) 0;
+  pointer-events:none;
+}
+.top > *{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.brand svg{width:34px;height:34px;flex:none}
+.wordmark{font-family:"Fraunces", Georgia, serif;font-style:italic;font-weight:600;font-size:28px;letter-spacing:-.01em;line-height:1}
+.brand-ja{font-size:12px;font-weight:700;letter-spacing:.14em;opacity:.6;margin-left:2px;padding-top:4px}
+.top-right{display:flex;align-items:center;gap:10px}
+
+/* ---------- language picker ---------- */
+.lang{
+  position:relative;display:flex;align-items:center;
+  height:44px;padding:0 8px 0 14px;border-radius:999px;
+}
+.lang select{
+  appearance:none;-webkit-appearance:none;
+  background:transparent;border:0;color:inherit;font:inherit;
+  font-size:13px;font-weight:700;letter-spacing:.06em;
+  height:100%;padding:0 22px 0 0;cursor:pointer;
+}
+.lang select:focus-visible{outline:none}
+.lang:focus-within{box-shadow:0 0 0 3px var(--ink)}
+.lang .chev{
+  position:absolute;right:10px;width:11px;height:8px;
+  pointer-events:none;opacity:.55;
+}
+.lang option{color:#1F2733;background:#fff;font-weight:700}
+.counter{
+  display:flex;align-items:center;gap:8px;
+  height:44px;padding:0 18px;border-radius:999px;
+  font-size:13px;font-weight:700;letter-spacing:.06em;
+}
+.counter b{font-family:"Fraunces", Georgia, serif;font-style:italic;font-size:22px;font-weight:600;min-width:1.4ch;text-align:right;display:inline-block}
+.counter b.bump{animation:bump .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+.pill-btn{
+  display:flex;align-items:center;gap:8px;height:44px;padding:0 16px 0 14px;border-radius:999px;
+  color:inherit;font:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer;
+  transition:transform .2s ease, background-color .2s ease;
+}
+.pill-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.8)}
+.pill-btn:active{transform:scale(.96)}
+.pill-btn:focus-visible,.flv:focus-visible,.brand:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.pill-btn svg{width:18px;height:18px}
+.pill-btn .state{font-family:"Fraunces", Georgia, serif;font-style:italic;font-weight:600;font-size:14px;opacity:.55;min-width:2.2em;text-align:left}
+.pill-btn[aria-pressed="true"] .state{opacity:1}
+.pill-btn .wave{opacity:0;transition:opacity .2s}
+.pill-btn[aria-pressed="true"] .wave{opacity:1}
+.pill-btn .mute{transition:opacity .2s}
+.pill-btn[aria-pressed="true"] .mute{opacity:0}

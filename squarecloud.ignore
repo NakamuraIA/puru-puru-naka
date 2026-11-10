@@ -1,0 +1,5 @@
+# O deploy deve partir de dist/, gerado por npm run build.
+# npm run deploy:update usa dist/ como diretorio de trabalho da CLI.
+# A raiz contem codigo de desenvolvimento; bloquear upload direto daqui.
+*
+!squarecloud.app
